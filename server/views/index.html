@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>GitHub Contest!</h1>
+    <p>Welcome to the GitHub Contest.</p>
+    <br>
+
+    <form method = "post" action = "/submit">
+      <div class="form-group">
+        <label>GitHub Name</label>
+        <input class="form-control" name = "name" placeholder="GitHub Name">
+      </div>
+      <div class="form-group">
+        <label>GitHub URL</label>
+        <input class="form-control" name = "url" placeholder="GitHub URL">
+      </div>
+      <div class="form-group">
+        <label>GitHub Image URL</label>
+        <input class="form-control" name="image" placeholder="GitHub Image URL">
+      </div>
+      <input type="submit" class="btn btn-default"></input>
+    </form>
+    <br>
+    <br>
+    <form method = "post" action = "/move">
+      <input type="submit" value="See all Submissions" class="btn btn-default"></input>
+    </form>
+    <br>
+  {% for error in errorArray%}
+    <ul>
+    <li class='error'>{{error}}</li>
+    </ul>
+  {% endfor %}
+
+  </div>
+
+{% endblock %}

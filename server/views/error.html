@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h3>{{ message }}</h3>
+
+    <form method = "post" action = "/move">
+    <input type="submit" value="See all Submissions" class="btn btn-default"></input>
+    </form>
+  </div>
+
+{% endblock %}

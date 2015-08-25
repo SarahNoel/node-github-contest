@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>Current Submissions</h1>
+
+    {% for sub in allSubs %}
+    <ul>
+    <img class = 'pics' src = {{sub.githubImage}} >
+    <li>GitHub Name: {{sub.githubName}}</li>
+    <li>GitHub URL: {{sub.githubURL}}</li>
+
+
+    </ul>
+    {% endfor %}
+
+
+  <form method = "get" action = "/">
+      <input type="submit" value="Add Another Contestant" class="btn btn-default"></input>
+  </form>
+  <br>
+  <form method = "post" action = "/voteRedirect">
+    <input type="submit" value="Let's get Voting!" class="btn btn-default"></input>
+  </form>
+
+  </div>
+
+{% endblock %}
