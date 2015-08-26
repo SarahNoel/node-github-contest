@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>The Champion!</h1>
+
+    {% for sub in allSubs %}
+    <div>
+    <ul>
+    <img class = 'pics' src = {{sub.githubImage}} >
+      <li>GitHub Name: {{sub.githubName}}</li>
+      <li>GitHub URL: {{sub.githubURL}}</li>
+    </ul>
+    </div>
+    {% endfor %}
+
+    <form method = "post" action = "/reset">
+      <input type="submit" value= "Start Again!" class="btn btn-default"></input>
+    </form>
+
+
+  </div>
+
+{% endblock %}

@@ -7,8 +7,8 @@
 
   <div class="container">
 
-    <h1>GitHub Contest!</h1>
-    <p>Let's get voting.</p>
+    <h1>Round 1 Winners!</h1>
+    <p>Let's see who will win round 2.</p>
 
     {% for sub in allSubs %}
     <div>
@@ -18,7 +18,7 @@
     <li>GitHub URL: {{sub.githubURL}}</li>
     </ul>
 
-    <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
+    <form method = "post" action = "/tallyVotes2/{{sub.githubID}}">
       <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
     </form>
 
@@ -27,7 +27,7 @@
     </div>
     {% endfor %}
 
-    <form method = "post" action = "/findWinner">
+    <form method = "post" action = "/findWinner2">
       <input type="submit" value= "Let's see who won!" class="btn btn-default"></input>
     </form>
 

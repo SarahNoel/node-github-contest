@@ -7,18 +7,18 @@
 
   <div class="container">
 
-    <h1>GitHub Contest!</h1>
-    <p>Let's get voting.</p>
+    <h1>Final Round!</h1>
+    <p>Let's see who will win it all!</p>
 
     {% for sub in allSubs %}
     <div>
-      <ul>
-    <img class = 'pics' src = {{sub.githubImage}} >
-    <li>GitHub Name: {{sub.githubName}}</li>
-    <li>GitHub URL: {{sub.githubURL}}</li>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>GitHub Name: {{sub.githubName}}</li>
+      <li>GitHub URL: {{sub.githubURL}}</li>
     </ul>
 
-    <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
+    <form method = "post" action = "/tallyVotes3/{{sub.githubID}}">
       <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
     </form>
 
@@ -27,7 +27,7 @@
     </div>
     {% endfor %}
 
-    <form method = "post" action = "/findWinner">
+    <form method = "post" action = "/findFinalWinner">
       <input type="submit" value= "Let's see who won!" class="btn btn-default"></input>
     </form>
 

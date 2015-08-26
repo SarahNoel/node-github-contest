@@ -11,11 +11,9 @@
 
     {% for sub in allSubs %}
     <ul>
-    <img class = 'pics' src = {{sub.githubImage}} >
-    <li>GitHub Name: {{sub.githubName}}</li>
-    <li>GitHub URL: {{sub.githubURL}}</li>
-
-
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>GitHub Name: {{sub.githubName}}</li>
+      <li>GitHub URL: {{sub.githubURL}}</li>
     </ul>
     {% endfor %}
 
@@ -24,7 +22,7 @@
       <input type="submit" value="Add Another Contestant" class="btn btn-default"></input>
   </form>
   <br>
-  <form method = "post" action = "/voteRedirect">
+  <form method = "get" action = "/vote">
     <input type="submit" value="Let's get Voting!" class="btn btn-default"></input>
   </form>
 
