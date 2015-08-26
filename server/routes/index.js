@@ -53,7 +53,7 @@ router.get('/vote2', function(req, res, next){
 
 //tallies votes round 2
 router.post("/tallyVotes2/:id", function(req, res, next){
-  logic.tallyVotes(params, winners)
+  logic.tallyVotes(req.params, winners)
   res.redirect('/vote2')
 });
 
@@ -70,7 +70,7 @@ router.get('/finalvote', function(req, res, next){
 
 //tallies final round votes
 router.post("/tallyVotes3/:id", function(req, res, next){
-  logic.tallyVotes(params, winners2)
+  logic.tallyVotes(req.params, winners2)
   res.redirect('/finalvote')
 });
 

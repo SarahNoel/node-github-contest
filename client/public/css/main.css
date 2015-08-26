@@ -15,3 +15,19 @@ a {
 .error{
   color:red;
 }
+
+ul{
+  width: 150px;
+}
+
+td{
+  padding:20px;
+}
+
+.smaller{
+  width: 500px;
+}
+
+.controller{
+  width: 500px;
+}

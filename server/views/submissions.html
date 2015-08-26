@@ -9,14 +9,19 @@
 
     <h1>Current Submissions</h1>
 
-    {% for sub in allSubs %}
-    <ul>
-      <img class = 'pics' src = {{sub.githubImage}} >
-      <li>GitHub Name: {{sub.githubName}}</li>
-      <li>GitHub URL: {{sub.githubURL}}</li>
-    </ul>
-    {% endfor %}
+    <div class = "row smaller">
 
+    {% for sub in allSubs %}
+
+    <div class = "col-md-6">
+      <ul>
+        <img class = 'pics' src = {{sub.githubImage}} >
+        <li>{{sub.githubName}}</li>
+        <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+      </ul>
+    </div>
+    {% endfor %}
+    </div>
 
   <form method = "get" action = "/">
       <input type="submit" value="Add Another Contestant" class="btn btn-default"></input>

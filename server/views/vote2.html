@@ -10,13 +10,18 @@
     <h1>Round 1 Winners!</h1>
     <p>Let's see who will win round 2.</p>
 
+     <table>
+    <tr class = "thinner">
     {% for sub in allSubs %}
-    <div>
-      <ul>
-    <img class = 'pics' src = {{sub.githubImage}} >
-    <li>GitHub Name: {{sub.githubName}}</li>
-    <li>GitHub URL: {{sub.githubURL}}</li>
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
     </ul>
+    </td>
+    </tr>
+  </table>
 
     <form method = "post" action = "/tallyVotes2/{{sub.githubID}}">
       <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>

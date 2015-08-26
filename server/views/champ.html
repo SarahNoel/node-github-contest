@@ -5,18 +5,14 @@
 
 {% block content %}
 
-  <div class="container">
-
-    <h1>The Champion!</h1>
-
+    <div class="container">
     {% for sub in allSubs %}
-    <div>
-    <ul>
-    <img class = 'pics' src = {{sub.githubImage}} >
-      <li>GitHub Name: {{sub.githubName}}</li>
-      <li>GitHub URL: {{sub.githubURL}}</li>
-    </ul>
-    </div>
+      <ul>
+        <img class = 'pics' src = {{sub.githubImage}} >
+        <li>{{sub.githubName}}</li>
+        <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+      </ul>
+
     {% endfor %}
 
     <form method = "post" action = "/reset">

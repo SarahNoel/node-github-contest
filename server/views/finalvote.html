@@ -10,13 +10,18 @@
     <h1>Final Round!</h1>
     <p>Let's see who will win it all!</p>
 
+   <table>
+    <tr>
     {% for sub in allSubs %}
-    <div>
+    <td>
     <ul>
       <img class = 'pics' src = {{sub.githubImage}} >
-      <li>GitHub Name: {{sub.githubName}}</li>
-      <li>GitHub URL: {{sub.githubURL}}</li>
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
     </ul>
+    </td>
+    </tr>
+  </table>
 
     <form method = "post" action = "/tallyVotes3/{{sub.githubID}}">
       <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>

@@ -43,7 +43,7 @@ function seeSubmissions(res, allSubs){
   }
 };
 
-//tallies votes
+//adds votes
 function tallyVotes(params, allSubs){
   var id = params.id
   for (var i = 0; i < allSubs.length; i++) {
