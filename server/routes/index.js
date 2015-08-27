@@ -19,14 +19,20 @@ router.post('/submit', function(req, res, next){
   errorArray = logic.submitButton(req.body, res, allSubs)
 });
 
+router.post('/addContestant', function(req, res, next) {
+  errorArray = [];
+  res.redirect('/');
+})
+
 //see submissions
 router.post('/move', function(req, res, next){
-  errorArray = logic.seeSubmissions(res, allSubs);
+  errorArray = logic.checkSubLength(res, allSubs)
+  allSubs = logic.moveToSubmit(res, allSubs);
 });
 
 //renders all submissions
 router.get('/submissions', function(req, res, next) {
-  res.render('submissions', {subs1:allSubs[0], subs2:allSubs[1], subs3:allSubs[2], subs4:allSubs[3]});
+  res.render('submissions', {allSubs:allSubs, errorArray:errorArray});
 });
 
 //renders round 1 voting page
@@ -90,5 +96,19 @@ router.post('/reset', function(req, res, next){
   allSubs = [];
   res.redirect('/')
 });
+
+//checks for 8 submissions
+router.post('/voteRedirect', function(req, res, next){
+  errorArray = [];
+  if (allSubs.length < 8){
+    errorArray.push("We need eight contestants before we begin!");
+    res.redirect("/submissions");
+  }
+  else{
+    allSubs = logic.divideSubs(allSubs);
+    res.redirect("/vote");
+  }
+});
+
 
 module.exports = router;

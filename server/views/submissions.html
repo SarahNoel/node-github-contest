@@ -9,64 +9,35 @@
 
     <h1>Current Submissions</h1>
 
-  <table>
-    <tr class = "thinner">
-      {% for sub in subs1 %}
-    <td>
-    <ul>
-      <img class = 'pics' src = {{sub.githubImage}} >
-      <li>{{sub.githubName}}</li>
-      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
-    </ul>
-    </td>
-    {% endfor %}
-    </tr>
+      <div class = "row">
 
-    <tr class = "thinner">
-    {% for sub in subs2 %}
-    <td>
-    <ul>
-      <img class = 'pics' src = {{sub.githubImage}} >
-      <li>{{sub.githubName}}</li>
-      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
-    </ul>
-    </td>
-    {% endfor %}
-    </tr>
+        {% for sub in allSubs %}
 
-    <tr class = "thinner">
-    {% for sub in subs3 %}
-    <td>
-    <ul>
-      <img class = 'pics' src = {{sub.githubImage}} >
-      <li>{{sub.githubName}}</li>
-      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
-    </ul>
-    </td>
-    {% endfor %}
-    </tr>
+        <div class = "col-md-6">
+        <ul>
+          <img class = 'pics' src = {{sub.githubImage}} >
+          <li>{{sub.githubName}}</li>
+          <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+        </ul>
+      </div>
+      {% endfor %}
+      </div>
 
-    <tr class = "thinner">
-    {% for sub in subs4 %}
-    <td>
-    <ul>
-      <img class = 'pics' src = {{sub.githubImage}} >
-      <li>{{sub.githubName}}</li>
-      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
-    </ul>
-    </td>
-    {% endfor %}
-    </tr>
-  </table>
-
-  <form method = "get" action = "/">
+  <form method = "post" action = "/addContestant">
       <input type="submit" value="Add Another Contestant" class="btn btn-default"></input>
   </form>
   <br>
-  <form method = "get" action = "/vote">
+
+  <form method = "post" action = "/voteRedirect">
     <input type="submit" value="Let's get Voting!" class="btn btn-default"></input>
   </form>
 
+  {% for error in errorArray%}
+    <ul>
+    <li class='error'>{{error}}</li>
+    </ul>
+
+    {% endfor %}
   </div>
 
 {% endblock %}

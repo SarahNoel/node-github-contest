@@ -19,9 +19,11 @@
             <li>{{sub.githubName}}</li>
             <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
           </ul>
+        <form method = "post" action = "/tallyVotes3/{{sub.githubID}}">
+          <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
+        </form>
         </td>
       {% endfor %}
-
       </tr>
     </table>
 

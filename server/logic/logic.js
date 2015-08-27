@@ -47,17 +47,22 @@ function divideSubs(allSubs) {
 
 
 //see submissions
-function seeSubmissions(res, allSubs){
+function checkSubLength(res, allSubs){
   errorArray = [];
-  allSubs = divideSubs(allSubs);
   //checks for current submissions, throws error if none
   if(allSubs.length === 0){
     errorArray.push("No current submissions.");
     res.redirect('/');
     return errorArray
   }
-  else{
-    res.redirect('/submissions')
+}
+
+//see submissions
+function moveToSubmit(res, allSubs){
+  errorArray = [];
+  if(allSubs.length > 0) {
+    res.redirect('/submissions');
+    return allSubs
   }
 };
 
@@ -94,10 +99,35 @@ function findWinner(allSubs){
   return winners
 }
 
+
+//checks for 8 submissions
+function checkForEight(allSubs, res){
+  errorArray = [];
+  if (allSubs.length < 8){
+    errorArray.push("We need eight contestants before we begin!");
+    res.redirect("/submissions");
+    return errorArray;
+  }
+}
+
+
+//divides and moves
+function divideAndMove(allSubs, res){
+  allSubs = divideSubs(allSubs);
+  res.redirect("/vote");
+  return allSubs;
+}
+
+
+
 module.exports = {
   submitButton:submitButton,
-  seeSubmissions:seeSubmissions,
   tallyVotes:tallyVotes,
   findWinner:findWinner,
   divideSubs:divideSubs,
+  checkSubLength:checkSubLength,
+  moveToSubmit:moveToSubmit,
+  checkForEight:checkForEight,
+  divideAndMove:divideAndMove,
+
 }
