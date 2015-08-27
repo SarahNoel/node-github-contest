@@ -9,19 +9,55 @@
 
     <h1>Current Submissions</h1>
 
-    <div class = "row smaller">
-
-    {% for sub in allSubs %}
-
-    <div class = "col-md-6">
-      <ul>
-        <img class = 'pics' src = {{sub.githubImage}} >
-        <li>{{sub.githubName}}</li>
-        <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
-      </ul>
-    </div>
+  <table>
+    <tr class = "thinner">
+      {% for sub in subs1 %}
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    </td>
     {% endfor %}
-    </div>
+    </tr>
+
+    <tr class = "thinner">
+    {% for sub in subs2 %}
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    </td>
+    {% endfor %}
+    </tr>
+
+    <tr class = "thinner">
+    {% for sub in subs3 %}
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    </td>
+    {% endfor %}
+    </tr>
+
+    <tr class = "thinner">
+    {% for sub in subs4 %}
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    </td>
+    {% endfor %}
+    </tr>
+  </table>
 
   <form method = "get" action = "/">
       <input type="submit" value="Add Another Contestant" class="btn btn-default"></input>

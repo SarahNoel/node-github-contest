@@ -29,9 +29,27 @@ function submitButton (body, res, allSubs){
 };
 
 
+//divide up allSubs
+function divideSubs(allSubs) {
+  var temp = [];
+  var sub1 = allSubs.splice(0, 2);
+  var sub2 = allSubs.splice(0, 2);
+  var sub3 = allSubs.splice(0, 2);
+  var sub4 = allSubs.splice(0, 2);
+  temp.push(sub1, sub2, sub3, sub4)
+   for (var i = 0; i < temp.length; i++) {
+    if(temp[i].length > 0){
+      allSubs.push(temp[i]);
+    }
+  }
+  return allSubs;
+}
+
+
 //see submissions
 function seeSubmissions(res, allSubs){
   errorArray = [];
+  allSubs = divideSubs(allSubs);
   //checks for current submissions, throws error if none
   if(allSubs.length === 0){
     errorArray.push("No current submissions.");
@@ -43,41 +61,36 @@ function seeSubmissions(res, allSubs){
   }
 };
 
+
 //adds votes
 function tallyVotes(params, allSubs){
   var id = params.id
   for (var i = 0; i < allSubs.length; i++) {
-    if (id === allSubs[i].githubID){
-      allSubs[i].votes += 1;
+    for (var j = 0; j < 2; j++) {
+      if (id === allSubs[i][j].githubID){
+      allSubs[i][j].votes += 1;
+      }
     }
   }
 }
+
 
 //finds winner
 function findWinner(allSubs){
   var semis = [];
   var winners = [];
-  var sub1 = allSubs.splice(0, 2);
-  var sub2 = allSubs.splice(0, 2);
-  var sub3 = allSubs.splice(0, 2);
-  var sub4 = allSubs.splice(0, 2);
-  allSubs.push(sub1, sub2, sub3, sub4);
   for (var i = 0; i < allSubs.length; i++) {
-    if(allSubs[i].length > 0){
-      semis.push(allSubs[i]);
-    }
-  }
-  for (var i = 0; i < semis.length; i++) {
-    if(semis[i][0].votes >= semis[i][1].votes){
-      winners.push(semis[i][0])
+    if(allSubs[i][0].votes >= allSubs[i][1].votes){
+      semis.push(allSubs[i][0])
     }
     else{
-      winners.push(semis[i][1])
+      semis.push(allSubs[i][1])
     }
-  //resets votes
-  }for (var j = 0; j < winners.length; j++) {
-    winners[j].votes = 0;
+  // resets votes
+  }for (var j = 0; j < semis.length; j++) {
+    semis[j].votes = 0;
   }
+  winners = divideSubs(semis);
   return winners
 }
 
@@ -86,4 +99,5 @@ module.exports = {
   seeSubmissions:seeSubmissions,
   tallyVotes:tallyVotes,
   findWinner:findWinner,
+  divideSubs:divideSubs,
 }

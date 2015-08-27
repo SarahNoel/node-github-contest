@@ -26,12 +26,12 @@ router.post('/move', function(req, res, next){
 
 //renders all submissions
 router.get('/submissions', function(req, res, next) {
-  res.render('submissions', {allSubs:allSubs});
+  res.render('submissions', {subs1:allSubs[0], subs2:allSubs[1], subs3:allSubs[2], subs4:allSubs[3]});
 });
 
 //renders round 1 voting page
 router.get('/vote', function(req, res, next) {
-  res.render('vote', {allSubs:allSubs})
+  res.render('vote', {subs1:allSubs[0], subs2:allSubs[1], subs3:allSubs[2], subs4:allSubs[3]});
 });
 
 //tallies votes round 1
@@ -48,7 +48,7 @@ router.post('/findWinner', function(req, res, next){
 
 //render round 2 of voting
 router.get('/vote2', function(req, res, next){
-  res.render('vote2', {allSubs:winners})
+  res.render('vote2', {subs1:winners[0], subs2:winners[1]});
 });
 
 //tallies votes round 2
@@ -65,7 +65,7 @@ router.post('/findWinner2', function(req, res, next){
 
 //render final round of voting
 router.get('/finalvote', function(req, res, next){
-  res.render('finalvote', {allSubs:winners2})
+  res.render('finalvote', {allSubs:winners2[0]})
 });
 
 //tallies final round votes
@@ -82,7 +82,7 @@ router.post('/findFinalWinner', function(req, res, next){
 
 //render champion
 router.get('/champ', function(req, res, next){
-  res.render('champ', {allSubs:champ})
+  res.render('champ', {allSubs:champ[0]})
 });
 
 //reset all submissions

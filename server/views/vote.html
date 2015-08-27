@@ -7,30 +7,78 @@
 
   <div class="container">
 
-    <h1>GitHub Contest!</h1>
-    <p>Let's get voting.</p>
+    <h1>GitHub Contest-Round 1</h1>
+    <p>There will be one winner from each pair below.</p>
 
    <table>
     <tr class = "thinner">
-    {% for sub in allSubs %}
+    {% for sub in subs1 %}
     <td>
     <ul>
       <img class = 'pics' src = {{sub.githubImage}} >
       <li>{{sub.githubName}}</li>
       <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
     </ul>
-    </td>
-    </tr>
-  </table>
-
     <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
       <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
     </form>
+    </td>
 
-    <p>{{message}}</p>
-
-    </div>
     {% endfor %}
+    </tr>
+
+    <tr class = "thinner">
+    {% for sub in subs2 %}
+
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
+      <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
+    </form>
+    </td>
+
+    {% endfor %}
+    </tr>
+
+   <tr class = "thinner">
+
+    {% for sub in subs3 %}
+
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
+      <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
+    </form>
+    </td>
+
+    {% endfor %}
+    </tr>
+       <tr class = "thinner">
+
+    {% for sub in subs4 %}
+
+    <td>
+    <ul>
+      <img class = 'pics' src = {{sub.githubImage}} >
+      <li>{{sub.githubName}}</li>
+      <li><a href={{sub.githubURL}}>Link to GitHub </a></li>
+    </ul>
+    <form method = "post" action = "/tallyVotes/{{sub.githubID}}">
+      <input type="submit" id={{sub.githubID}} value= "Vote for {{sub.githubName}}!" class="btn btn-default"></input>
+    </form>
+    </td>
+
+    {% endfor %}
+    </tr>
+    </table>
 
     <form method = "post" action = "/findWinner">
       <input type="submit" value= "Let's see who won!" class="btn btn-default"></input>
